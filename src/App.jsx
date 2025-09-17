@@ -12,7 +12,7 @@ function App() {
   const [id, setId] = useState("");
 
   const getProduct = async () => {
-    const response = await axios.get("http://localhost:4000/api/product");
+    const response = await axios.get("https://em-task-backend-1.onrender.com/api/product");
     const product = response.data;
     console.log(product);
     setProductList(product);
@@ -22,7 +22,7 @@ function App() {
     if (!title.trim() || amount <= 0) return;
     if (mode) {
       const UpdateProduct = { title, amount };
-      await axios.put(`http://localhost:4000/api/product/${id}`, UpdateProduct);
+      await axios.put(`https://em-task-backend-1.onrender.com/api/product/${id}`, UpdateProduct);
       setTitle("");
       setAmount("");
       setId("");
@@ -30,7 +30,7 @@ function App() {
     } else {
       try {
         const newProdcut = { title, amount };
-        await axios.post("http://localhost:4000/api/product", newProdcut);
+        await axios.post("https://em-task-backend-1.onrender.com/api/product", newProdcut);
         setTitle("");
         setAmount("");
       } catch (error) {
@@ -48,7 +48,7 @@ function App() {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/product/${id}`);
+      await axios.delete(`https://em-task-backend-1.onrender.com/api/product/${id}`);
     } catch (error) {
       console.log(error);
     }
